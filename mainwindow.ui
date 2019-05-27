@@ -1,0 +1,1588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1280</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>14</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(32, 32, 32, 255), stop:1 rgba(24, 45, 71, 255))}
+QPushButton {
+     background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:1 rgba(71, 161, 175, 255));
+     border-style: outset;
+     border-width: 2px;
+     border-color: rgb(0, 135, 106);
+     border-radius: 8px;
+	font: 14pt &quot;Rockwell&quot;;
+	color: rgb(0, 49, 83);
+}
+QPushButton:disabled {
+background-color: #bbb;
+border-color: #999;
+}
+QPushButton:!enabled {
+background-color: #bbb;
+border-color: #999;
+}
+
+QLabel {
+	background: rgba(255, 255, 255, 0);
+	font: 14pt &quot;Rockwell&quot;;
+	color: rgb(217, 217, 217)
+}
+QGridLayout {
+	background: rgba(255, 255, 255, 0);
+}
+QSlider {
+	background:rgba(255, 255, 255, 0);
+}
+QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+   </property>
+   <widget class="QWidget" name="horizontalWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>130</y>
+      <width>661</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>721</width>
+      <height>381</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: rgba(255, 255, 255, 0)</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item row="2" column="1">
+      <widget class="QLabel" name="gain2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="6">
+      <widget class="QSlider" name="gainRange7">
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="dFreq3">
+       <property name="styleSheet">
+        <string notr="true">font: 7pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;400-800&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="8">
+      <widget class="QLabel" name="gain9">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="9">
+      <widget class="QLabel" name="dFreq10">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;15k...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QSlider" name="gainRange4">
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="7">
+      <widget class="QSlider" name="gainRange8">
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="dFreq4">
+       <property name="styleSheet">
+        <string notr="true">font: 7pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;800-1.5k&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="8">
+      <widget class="QLabel" name="dFreq9">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;10k - 15k&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLabel" name="gain4">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; 0 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSlider" name="gainRange2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="gain1">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLabel" name="dFreq6">
+       <property name="styleSheet">
+        <string notr="true">font: 7pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;3k - 5k&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="dFreq5">
+       <property name="styleSheet">
+        <string notr="true">font: 7pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;1.5k - 3k&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QLabel" name="dFreq7">
+       <property name="styleSheet">
+        <string notr="true">font: 7pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;5k - 7k&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="7">
+      <widget class="QLabel" name="gain8">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QSlider" name="gainRange5">
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="tickPosition">
+        <enum>QSlider::NoTicks</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="9">
+      <widget class="QSlider" name="gainRange10">
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="6">
+      <widget class="QLabel" name="gain7">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="gain5">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QSlider" name="gainRange3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QSlider" name="gainRange6">
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="dFreq1">
+       <property name="styleSheet">
+        <string notr="true">font: 7pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;0 - 200&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="8">
+      <widget class="QSlider" name="gainRange9">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="9">
+      <widget class="QLabel" name="gain10">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLabel" name="gain6">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="7">
+      <widget class="QLabel" name="dFreq8">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;7k-10k&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="dFreq2">
+       <property name="styleSheet">
+        <string notr="true">font: 7pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;200-400&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="gain3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>21</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Leelawadee UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;  0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSlider" name="gainRange1">
+       <property name="styleSheet">
+        <string notr="true">QSlider::groove:vertical {
+border: 1px solid #bbb;
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0.04, stop:0 rgba(0, 0, 25, 255), stop:0.965909 rgba(255, 255, 255, 255));
+height: 310px;
+border-radius: 8px;
+}
+
+QSlider::sub-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.111732 rgba(29, 47, 63, 255), stop:1 rgba(38, 70, 86, 255));
+border: 2px solid rgb(176, 176, 176);
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:vertical {
+background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:0.5 rgba(71, 161, 175, 255));
+border: 2px solid #777;
+height: 10px;
+border-radius: 8px;
+}
+
+QSlider::handle:vertical {
+background:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #eee, stop:1 #c1c);
+border: 1px solid #666;
+height: 13px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 0px;
+}
+
+QSlider::handle:verticall:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:vertical:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:vertical:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:vertical:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+       </property>
+       <property name="minimum">
+        <number>-15</number>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>140</y>
+      <width>551</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: rgba(255, 255, 255, 0)</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QCustomPlot" name="specterBefore" native="true">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCustomPlot" name="specterAfter" native="true">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalWidget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>540</y>
+      <width>611</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	background:rgba(255, 255, 255, 0);
+}
+QPushButton {
+     background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(44, 62, 80, 255), stop:1 rgba(71, 161, 175, 255));
+     border-style: outset;
+     border-width: 2px;
+     border-color: rgb(0, 135, 106);
+     border-radius: 8px;
+	
+	
+	
+	font: 14pt &quot;Rockwell&quot;;
+	color: rgb(0, 49, 83)
+}</string>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+     <item>
+      <widget class="QPushButton" name="start">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:disabled {
+background-color: #bbb;
+border-color: #999;
+}
+QPushButton:!enabled {
+background-color: #bbb;
+border-color: #999;
+color: #999
+}
+</string>
+       </property>
+       <property name="text">
+        <string>FILTER</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stop">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:disabled {
+background-color: #bbb;
+border-color: #999;
+}
+QPushButton:!enabled {
+background-color: #bbb;
+border-color: #999;
+color: #999
+}
+</string>
+       </property>
+       <property name="text">
+        <string>NEXT PATCH:)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pause">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:disabled {
+background-color: #bbb;
+border-color: #999;
+}
+QPushButton:!enabled {
+background-color: #bbb;
+border-color: #999;
+color: #999
+}
+</string>
+       </property>
+       <property name="text">
+        <string>NEXT PATCH:)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="resume">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:disabled {
+background-color: #bbb;
+border-color: #999;
+}
+QPushButton:!enabled {
+background-color: #bbb;
+border-color: #999;
+color: #999
+}
+</string>
+       </property>
+       <property name="text">
+        <string>NEXT PATCH:)</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="loadFile">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string>load file</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="filePath">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>80</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 8pt &quot;Leelawadee UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;FilePath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

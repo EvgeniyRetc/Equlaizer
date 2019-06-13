@@ -28,22 +28,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 CONFIG += release
 QMAKE_LFLAGS += -fopenmp
+QMAKE_CFLAGS_RELEASE += -fopenmp
 QMAKE_CXXFLAGS += -fopenmp
-LIBS += -fopenmp
 
+LIBS += -fopenmp
+INCLUDEPATH += $$PWD/myFilterLib
+LIBS += -L$$PWD/myFilterLib -lmyFilter
 
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-        myFilter.cpp \
         qcustomplot.cpp\
-        myFilter.cpp
 
 HEADERS += \
         mainwindow.h \
-        myFilter.h \
         qcustomplot.h
-        myFilter.h
 
 FORMS += \
         mainwindow.ui
@@ -52,4 +51,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+
 

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QFileDialog>
+#include "myfilter.h"
 QVector<double> VectorToQVector(std::vector<double> vector_){
     QVector<double> out(vector_.size(),0);
     for(int i=0; i < vector_.size();i++){
@@ -41,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->specterBefore->xAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
     ui->specterBefore->yAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
     QLinearGradient plotGradient;
+
     plotGradient.setStart(0, 0);
     plotGradient.setFinalStop(0, 350);
     plotGradient.setColorAt(0, QColor(20, 30, 48));
@@ -137,7 +139,7 @@ void MainWindow::InitEqulaizer(){
 }
 
 
-std::vector<double> MainWindow::Filtering(std::vector<double> signalIn_, Filter filter_, double gain_) {
+std::vector<double> MainWindow::Filtering(std::vector<double> &signalIn_, Filter filter_, double gain_) {
     std::vector<double>ImpulseResponse = filter_.GetImpulseResponse();
     std::vector<double>signalOut(signalIn_.size());
     for (int i = 0; i < signalIn_.size(); i++) {
@@ -152,7 +154,8 @@ std::vector<double> MainWindow::Filtering(std::vector<double> signalIn_, Filter 
     return signalOut;
 }
 
-std::vector<double> MainWindow::SumOfChannel(std::vector<std::vector<double> > signalOnChannel_) {
+std::vector<double> MainWindow::SumOfChannel(std::vector<std::vector<double> > &signalOnChannel_) {
+
     std::vector<double> signalOut(signalOnChannel_[0].size());
     #pragma omp parallel for
     for (int j = 0; j < signalOnChannel_[0].size(); j++) {
@@ -163,7 +166,8 @@ std::vector<double> MainWindow::SumOfChannel(std::vector<std::vector<double> > s
     return signalOut;
 }
 
-std::vector<double> MainWindow::WorkEqulaizer(std::vector<double> signalIn_){
+std::vector<double> MainWindow::WorkEqulaizer(std::vector<double> &signalIn_){
+
     std::vector<std::vector<double> > signalOnChannel(NUM_OF_CHANNEL, std::vector<double>(signalIn_.size()));
     #pragma omp parallel for
     for (int i = 0; i < NUM_OF_CHANNEL; i++) {
@@ -172,7 +176,7 @@ std::vector<double> MainWindow::WorkEqulaizer(std::vector<double> signalIn_){
 
     return SumOfChannel(signalOnChannel);
 }
-std::vector<double> MainWindow::FFTAnalysis(std::vector<double> signalIn,  int numOfElements, int Nft) {
+std::vector<double> MainWindow::FFTAnalysis(std::vector<double> &signalIn,  int numOfElements, int Nft) {
 
     if ((numOfElements != 0) && ((numOfElements & (~numOfElements + numOfElements)) == numOfElements)) {//является ли степеню двойки
         int i = numOfElements;
@@ -212,6 +216,7 @@ std::vector<double> MainWindow::FFTAnalysis(std::vector<double> signalIn,  int n
     }
 
     Mmax = 2;
+
     while (n > Mmax) {
         Theta = -2*PI / Mmax; Wpi = sin(Theta);
         Wtmp = sin(Theta / 2); Wpr = Wtmp * Wtmp * 2;
@@ -241,41 +246,51 @@ std::vector<double> MainWindow::FFTAnalysis(std::vector<double> signalIn,  int n
     }
     return signalOut;
 }
-void MainWindow::PlotSpectr(std::vector<double> spectr, QString type){
+void MainWindow::PlotSpectr(std::vector<double> &spectr, QString type){
+
     if(type =="before"){
         QVector<double> freq(spectr.size()/2,0);
+
         for(int i = 0; i < freq.size(); i++){
             freq[i] = static_cast<double>(i)/freq.size()*(freqSamp/2);
         }
+
         QVector<double> qSpectr(spectr.size()/2,0);
         std::vector<double>spectrReal(spectr.begin(), spectr.begin()+ spectr.size()/2);
         qSpectr = VectorToQVector(spectrReal);
         ui->specterBefore->addGraph();
         ui->specterBefore->graph(0)->setData(freq, qSpectr);
-        ui->specterBefore->graph(0)->setPen(QColor(21, 115, 88, 255));//задаем цвет точки
+        ui->specterBefore->graph(0)->setPen(QColor(12, 202, 171, 255));//задаем цвет точки
         double maxY = qSpectr[0];
+
         for (int i=1; i < qSpectr.size(); i++){
            if (qSpectr[i]>maxY) maxY = qSpectr[i];
         }
+
         ui->specterBefore->yAxis->setRange(0, maxY*1.5);
         ui->specterBefore->replot();
     }
     else if(type =="after"){
+
         ui->specterAfter->yAxis->setRange(0, 20000);
         QVector<double> freq(spectr.size()/2,0);
+
         for(int i = 0; i < freq.size(); i++){
             freq[i] = static_cast<double>(i)/freq.size()*(freqSamp/2);
         }
+
         QVector<double> qSpectr(spectr.size()/2,0);
         std::vector<double>spectrReal(spectr.begin(), spectr.begin()+ spectr.size()/2);
         qSpectr = VectorToQVector(spectrReal);
         ui->specterAfter->addGraph();
         ui->specterAfter->graph(0)->setData(freq, qSpectr);
-        ui->specterAfter->graph(0)->setPen(QColor(21, 115, 88, 255));//задаем цвет точки
+        ui->specterAfter->graph(0)->setPen(QColor(12, 202, 171, 255));//задаем цвет точки
         double maxY = qSpectr[0];
+
         for (int i=1; i < qSpectr.size(); i++){
            if (qSpectr[i]>maxY) maxY = qSpectr[i];
         }
+
         ui->specterAfter->yAxis->setRange(0, maxY*1.5);
         ui->specterAfter->replot();
      }
@@ -363,10 +378,21 @@ void MainWindow::on_loadFile_clicked()
                 path.absolutePath() + "/Equlaizer/files",
                 "Text files (*.txt);; Data files (*.dat);; Wave file (*.wav)"
                 );
+
     ui->filePath->setText(fileName);
     if (!fileName.isEmpty()){
         ui->start->setEnabled(true);
     }
+
+    std::vector<double> fromFile;
+    std::string tmp;
+    tmp = fileName.toStdString();
+    std::ifstream inputFile(fileName.toStdString());
+    std::istream_iterator<double> input(inputFile);
+    std::copy(input, std::istream_iterator<double>(), std::back_inserter(fromFile));
+    std::vector<double> spectrIn(fromFile.size());
+    spectrIn = FFTAnalysis(fromFile,fromFile.size(), fromFile.size());
+    PlotSpectr(spectrIn, "before");
 }
 void MainWindow::on_start_clicked(bool checked)
 {
@@ -392,17 +418,13 @@ void MainWindow::on_start_clicked(bool checked)
                                   "color: rgb(0, 135, 106);"
                                   );
          ui->start->setText("FILTERING");
-
          std::vector<double> fromFile;
          std::string tmp;
          tmp = fileName.toStdString();
          std::ifstream inputFile(fileName.toStdString());
          std::istream_iterator<double> input(inputFile);
          std::copy(input, std::istream_iterator<double>(), std::back_inserter(fromFile));
-         std::vector<double> spectrIn(fromFile.size());
-         spectrIn = FFTAnalysis(fromFile,fromFile.size(), fromFile.size());
-         PlotSpectr(spectrIn, "before");
-         std::vector<double> signalFiltered(spectrIn.size()), spectrOut(spectrIn.size());
+         std::vector<double> signalFiltered(fromFile.size()), spectrOut(fromFile.size());
          signalFiltered = WorkEqulaizer(fromFile);
          spectrOut = FFTAnalysis(signalFiltered,signalFiltered.size(), signalFiltered.size());
          PlotSpectr(spectrOut, "after");

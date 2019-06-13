@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "myFilter.h"
+#include "myfilter.h"
 #include <QLinearGradient>
 #include "qcustomplot.h"
 #include <array>
@@ -10,6 +10,7 @@
 #include <iterator>
 #include <sstream>
 #include <math.h>
+#include <omp.h>
 
 
 
@@ -66,11 +67,11 @@ private:
     int freqSamp = 44000;
     void InitEqulaizer();
 
-    std::vector<double> Filtering(std::vector<double> signalIn_, Filter filter_, double gain_);
-    std::vector<double> SumOfChannel(std::vector<std::vector<double> > signalOnChannel_);
-    std::vector<double> FFTAnalysis(std::vector<double> signalIn, int numOfElements, int Nft);
-    std::vector<double> WorkEqulaizer(std::vector<double> signalIn_);
-    void PlotSpectr(std::vector<double> spectr, QString type);
+    std::vector<double> Filtering(std::vector<double> &signalIn_, Filter filter_, double gain_);
+    std::vector<double> SumOfChannel(std::vector<std::vector<double> > &signalOnChannel_);
+    std::vector<double> FFTAnalysis(std::vector<double> &signalIn, int numOfElements, int Nft);
+    std::vector<double> WorkEqulaizer(std::vector<double> &signalIn_);
+    void PlotSpectr(std::vector<double> &spectr, QString type);
 
 
 

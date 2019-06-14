@@ -33,6 +33,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../973870b03949a43d21690b0b78cad32b_icon.png</normaloff>../../973870b03949a43d21690b0b78cad32b_icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>

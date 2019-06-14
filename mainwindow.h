@@ -64,7 +64,7 @@ private:
     std::array<Filter, NUM_OF_CHANNEL> Equlaizer;
     QString fileName;
     std::array<double, NUM_OF_CHANNEL> gainArray = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    int freqSamp = 44000;
+    uint32_t freqSamp = 44000;
     void InitEqulaizer();
 
     std::vector<double> Filtering(std::vector<double> &signalIn_, Filter filter_, double gain_);

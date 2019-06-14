@@ -3,9 +3,9 @@
 #include <QFileDialog>
 #include "myfilter.h"
 QVector<double> VectorToQVector(std::vector<double> vector_){
-    QVector<double> out(vector_.size(),0);
-    for(int i=0; i < vector_.size();i++){
-        out[i] = vector_[i];
+    QVector<double> out(static_cast<int> (vector_.size()),0);
+    for(int i=0; i < static_cast<int>(vector_.size());i++){
+        out[i] = vector_[static_cast<uint64_t>(i)];
     }
     return out;
 }
@@ -142,14 +142,14 @@ void MainWindow::InitEqulaizer(){
 std::vector<double> MainWindow::Filtering(std::vector<double> &signalIn_, Filter filter_, double gain_) {
     std::vector<double>ImpulseResponse = filter_.GetImpulseResponse();
     std::vector<double>signalOut(signalIn_.size());
-    for (int i = 0; i < signalIn_.size(); i++) {
-        signalOut[i] = 0;
-        for (int j = 0; j < ImpulseResponse.size(); j++) {
+    for (int i = 0; static_cast<uint64_t>(i) < signalIn_.size(); i++) {
+        signalOut[static_cast<uint64_t>(i)] = 0;
+        for (int j = 0; static_cast<uint64_t>(j) < ImpulseResponse.size(); j++) {
             if (i - j >= 0) {
-                signalOut[i] += ImpulseResponse[j] * signalIn_[i - j];
+                signalOut[static_cast<uint64_t>(i)] += ImpulseResponse[static_cast<uint64_t>(j)] * signalIn_[static_cast<uint64_t>(i - j)];
             }
         }
-        signalOut[i] *= gain_;
+        signalOut[static_cast<uint64_t>(i)] *= gain_;
     }
     return signalOut;
 }
@@ -180,23 +180,23 @@ std::vector<double> MainWindow::FFTAnalysis(std::vector<double> &signalIn,  int 
 
     if ((numOfElements != 0) && ((numOfElements & (~numOfElements + numOfElements)) == numOfElements)) {//является ли степеню двойки
         int i = numOfElements;
-        int newSize = 1;
+        uint64_t newSize = 1;
         while (i != 0) {
             i = i / 2;
             newSize*= 2;
         }
         signalIn.resize(newSize, 0);
-        numOfElements = newSize;
-        Nft = newSize;
+        numOfElements = static_cast<int>(newSize);
+        Nft = static_cast<int> (newSize);
     }
-    int i, j, n, m, Mmax, Istp;
+    uint64_t i, j, n, m, Mmax, Istp;
     double tmpReal, tmpImag, Wtmp, Theta;
     double Wpr, Wpi, Wr, Wi;
-    std::vector< double> complexSignal(2*numOfElements);
-    std::vector< double> signalOut(numOfElements);
+    std::vector< double> complexSignal(static_cast<uint64_t>(2*numOfElements));
+    std::vector< double> signalOut(static_cast<uint64_t>(numOfElements));
 
 
-    n = 2 * numOfElements;
+    n = static_cast<uint64_t>(2 * numOfElements);
     for (i = 0; i < n; i += 2) {
         complexSignal[i] = 0;
         complexSignal[i + 1] = signalIn[i / 2];
@@ -208,7 +208,7 @@ std::vector<double> MainWindow::FFTAnalysis(std::vector<double> &signalIn,  int 
             tmpReal = complexSignal[i]; complexSignal[i] = complexSignal[j]; complexSignal[j] = tmpReal;
             tmpReal = complexSignal[i + 1]; complexSignal[i + 1] = complexSignal[j + 1]; complexSignal[j + 1] = tmpReal;
         }
-        i = i + 2; m = numOfElements;
+        i = i + 2; m = static_cast<uint64_t>(numOfElements);
         while ((m >= 2) && (j > m)) {
             j = j - m; m = m >> 1;
         }
@@ -241,7 +241,7 @@ std::vector<double> MainWindow::FFTAnalysis(std::vector<double> &signalIn,  int 
         Mmax = Istp;
     }
 
-    for (i = 0; i < Nft; i++) {
+    for (i = 0; i < static_cast<uint64_t>(Nft); i++) {
         j = i * 2; signalOut[i] = 2 * sqrt(pow(complexSignal[j], 2) + pow(complexSignal[j + 1], 2)) / numOfElements;
     }
     return signalOut;
@@ -249,13 +249,13 @@ std::vector<double> MainWindow::FFTAnalysis(std::vector<double> &signalIn,  int 
 void MainWindow::PlotSpectr(std::vector<double> &spectr, QString type){
 
     if(type =="before"){
-        QVector<double> freq(spectr.size()/2,0);
+        QVector<double> freq(static_cast<int>(spectr.size()/2),0);
 
         for(int i = 0; i < freq.size(); i++){
             freq[i] = static_cast<double>(i)/freq.size()*(freqSamp/2);
         }
 
-        QVector<double> qSpectr(spectr.size()/2,0);
+        QVector<double> qSpectr(static_cast<int>(spectr.size()/2),0);
         std::vector<double>spectrReal(spectr.begin(), spectr.begin()+ spectr.size()/2);
         qSpectr = VectorToQVector(spectrReal);
         ui->specterBefore->addGraph();
@@ -273,13 +273,13 @@ void MainWindow::PlotSpectr(std::vector<double> &spectr, QString type){
     else if(type =="after"){
 
         ui->specterAfter->yAxis->setRange(0, 20000);
-        QVector<double> freq(spectr.size()/2,0);
+        QVector<double> freq(static_cast<int>(spectr.size()/2),0);
 
         for(int i = 0; i < freq.size(); i++){
             freq[i] = static_cast<double>(i)/freq.size()*(freqSamp/2);
         }
 
-        QVector<double> qSpectr(spectr.size()/2,0);
+        QVector<double> qSpectr(static_cast<int>(spectr.size()/2),0);
         std::vector<double>spectrReal(spectr.begin(), spectr.begin()+ spectr.size()/2);
         qSpectr = VectorToQVector(spectrReal);
         ui->specterAfter->addGraph();
@@ -391,7 +391,7 @@ void MainWindow::on_loadFile_clicked()
     std::istream_iterator<double> input(inputFile);
     std::copy(input, std::istream_iterator<double>(), std::back_inserter(fromFile));
     std::vector<double> spectrIn(fromFile.size());
-    spectrIn = FFTAnalysis(fromFile,fromFile.size(), fromFile.size());
+    spectrIn = FFTAnalysis(fromFile,static_cast<int> (fromFile.size()), static_cast<int> (fromFile.size()));
     PlotSpectr(spectrIn, "before");
 }
 void MainWindow::on_start_clicked(bool checked)
@@ -426,7 +426,7 @@ void MainWindow::on_start_clicked(bool checked)
          std::copy(input, std::istream_iterator<double>(), std::back_inserter(fromFile));
          std::vector<double> signalFiltered(fromFile.size()), spectrOut(fromFile.size());
          signalFiltered = WorkEqulaizer(fromFile);
-         spectrOut = FFTAnalysis(signalFiltered,signalFiltered.size(), signalFiltered.size());
+         spectrOut = FFTAnalysis(signalFiltered,static_cast<int>(signalFiltered.size()), static_cast<int>(signalFiltered.size()));
          PlotSpectr(spectrOut, "after");
 
 

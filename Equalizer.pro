@@ -27,9 +27,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 CONFIG += release
-QMAKE_LFLAGS += -fopenmp
-QMAKE_CFLAGS_RELEASE += -fopenmp
-QMAKE_CXXFLAGS += -fopenmp
+QMAKE_LFLAGS += -openmp
+QMAKE_CFLAGS_RELEASE += -openmp
+QMAKE_CXXFLAGS += -openmp
 
 LIBS += -fopenmp
 INCLUDEPATH += $$PWD/myFilterLib
